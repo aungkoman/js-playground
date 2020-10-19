@@ -6,6 +6,20 @@ var taskData = [
     {id:3, name : "Live scraping and logic", complete:false},
 ];
 
+
+/*
+function updateDataByFilter(id){
+    let filteredTask = taskData.filter(task=>task.id == id);
+    console.log("filteredTask is ");
+    console.log(filteredTask);
+    filteredTask[0].complete = true;
+
+    taskData.splice(delIndex,1);
+
+}
+updateDataByFilter(1);
+*/
+
 console.log("org data is ");
 console.log(JSON.parse(JSON.stringify(taskData)));
 
@@ -28,12 +42,15 @@ function completeTaskData(id){
 completeTaskData(1);
 
 function deleteTaskData(id){
+    taskData = taskData.filter(task=>task.id != id);
+    /*
     let delIndex = -1;
     taskData.map((task,index)=>{
         if(task.id == id ) delIndex = index;
     })
     if(delIndex < 0 ) return;
     taskData.splice(delIndex,1);
+    */
     console.log('deleteTaskData id '+id);
     console.log(JSON.parse(JSON.stringify(taskData)));
 }
